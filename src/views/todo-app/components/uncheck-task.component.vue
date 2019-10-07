@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { namespace }            from 'vuex-class';
 import { ITask }                from '@/views/todo-app/todo-app.interface';
 
 const UncheckTaskProps = Vue.extend({
@@ -15,8 +14,6 @@ const UncheckTaskProps = Vue.extend({
     task: Object,
   },
 });
-
-const module = namespace('todoApp');
 
 @Component
 export default class UncheckTask extends UncheckTaskProps {

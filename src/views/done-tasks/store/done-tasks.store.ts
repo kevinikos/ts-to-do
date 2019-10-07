@@ -1,4 +1,5 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
+import { ITask }                        from '@/views/todo-app/todo-app.interface';
 
 @Module({ namespaced: true })
 export default class DoneTasksStore extends VuexModule {
@@ -7,4 +8,6 @@ export default class DoneTasksStore extends VuexModule {
     'b',
     'c',
   ];
+
+  doneTasks: Array<ITask> = [];
 }

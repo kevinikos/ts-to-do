@@ -9,7 +9,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { namespace }            from 'vuex-class';
 
-const local = namespace('todoStore');
+const local = namespace('todoAppStore');
 
 @Component
 export default class RemoveTask extends Vue {

@@ -12,17 +12,28 @@
                  class="todo-app__done-tasks">
       Check complete tasks list
     </router-link>
-
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import store              from '@/store';
+import TodoAppStore       from '@/views/todo-app/store/todo-app.store';
 import AddTask            from '@/views/todo-app/components/add-task.component.vue';
 import TaskList           from '@/views/todo-app/components/task-list.component.vue';
 import TaskCounter        from '@/views/todo-app/components/task-counter.component.vue';
 
 @Component({
+  beforeRouteEnter(to, from, next) {
+    store.registerModule('todoAppStore', TodoAppStore);
+    console.log('register todo');
+    next();
+  },
+  beforeRouteLeave(to, from, next) {
+    store.unregisterModule('todoAppStore');
+    console.log('unregistered todo');
+    next();
+  },
   components: {
     AddTask,
     TaskList,

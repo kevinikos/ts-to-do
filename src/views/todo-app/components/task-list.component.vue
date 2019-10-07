@@ -21,7 +21,7 @@ import { ITask }          from '@/views/todo-app/todo-app.interface';
 import RemoveTask         from '@/views/todo-app/components/remove-task.component.vue';
 import UncheckTask        from '@/views/todo-app/components/uncheck-task.component.vue';
 
-const local = namespace('todoStore');
+const local = namespace('todoAppStore');
 
 @Component({
   components: {
