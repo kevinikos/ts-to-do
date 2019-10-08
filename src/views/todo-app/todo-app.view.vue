@@ -8,7 +8,7 @@
     <task-list />
     <task-counter />
 
-    <router-link to="/done-tasks"
+    <router-link :to="{name: 'done-tasks'}"
                  class="todo-app__done-tasks">
       Check complete tasks list
     </router-link>
@@ -17,29 +17,32 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { namespace }      from 'vuex-class';
 import store              from '@/store';
 import TodoAppStore       from '@/views/todo-app/store/todo-app.store';
 import AddTask            from '@/views/todo-app/components/add-task.component.vue';
 import TaskList           from '@/views/todo-app/components/task-list.component.vue';
 import TaskCounter        from '@/views/todo-app/components/task-counter.component.vue';
 
+const LOCAL_STORE = 'todoAppStore';
+const local = namespace(LOCAL_STORE);
+
 @Component({
-  beforeRouteEnter(to, from, next) {
-    store.registerModule('todoAppStore', TodoAppStore);
-    next();
-  },
-  beforeRouteLeave(to, from, next) {
-    store.unregisterModule('todoAppStore');
-    next();
-  },
   components: {
     AddTask,
     TaskList,
     TaskCounter,
   },
 })
-
 export default class TodoApp extends Vue {
+  beforeRouteEnter(to: any, from: any, next: any) {
+    store.registerModule(LOCAL_STORE, TodoAppStore);
+    next();
+  }
+
+  beforeDestroy() {
+    store.unregisterModule(LOCAL_STORE);
+  }
 }
 </script>
 

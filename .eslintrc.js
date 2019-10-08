@@ -10,6 +10,7 @@ module.exports = {
   ],
   rules: {
     'linebreak-style': 0,
+    'lines-between-class-members': 'off',
     'no-param-reassign': 'off',
     'no-multi-spaces': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

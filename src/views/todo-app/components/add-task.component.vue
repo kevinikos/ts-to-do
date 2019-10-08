@@ -29,7 +29,8 @@ import Component     from 'vue-class-component';
 import { namespace } from 'vuex-class';
 import { ITask }     from '@/views/todo-app/todo-app.interface';
 
-const local = namespace('todoAppStore');
+const LOCAL_STORE = 'todoAppStore';
+const local = namespace(LOCAL_STORE);
 
 @Component
 export default class AddTask extends Vue {

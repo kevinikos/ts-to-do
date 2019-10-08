@@ -6,14 +6,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { namespace }      from 'vuex-class';
+import { State }          from 'vuex-class';
 import { ITask }          from '@/views/todo-app/todo-app.interface';
-
-const local = namespace('todoAppStore');
 
 @Component
 export default class TaskCounter extends Vue {
-  @local.State('tasks') tasks!: Array<ITask>;
+  @State('tasks') tasks!: Array<ITask>;
 }
 </script>
 

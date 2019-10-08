@@ -18,12 +18,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { namespace }      from 'vuex-class';
+import { State }          from 'vuex-class';
 import { ITask }          from '@/views/todo-app/todo-app.interface';
 import RemoveTask         from '@/views/todo-app/components/remove-task.component.vue';
 import UncheckTask        from '@/views/todo-app/components/uncheck-task.component.vue';
-
-const local = namespace('todoAppStore');
 
 @Component({
   components: {
@@ -32,7 +30,7 @@ const local = namespace('todoAppStore');
   },
 })
 export default class TodoApp extends Vue {
-  @local.State('tasks') tasks!: Array<ITask>;
+  @State('tasks') tasks!: Array<ITask>;
 }
 </script>
 
