@@ -26,5 +26,7 @@ export default class UncheckTask extends UncheckTaskProps {
 </script>
 
 <style lang="scss" scoped>
-
+.uncheck-task {
+  @include list-item-btn(#3D9970);
+}
 </style>

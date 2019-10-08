@@ -26,5 +26,7 @@ export default class RemoveTask extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
+.remove-task {
+  @include list-item-btn(#FF4136);
+}
 </style>

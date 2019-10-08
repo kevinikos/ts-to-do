@@ -31,17 +31,19 @@ const local = namespace('doneTasksStore');
 @Component({
   beforeRouteEnter(to, from, next) {
     store.registerModule('doneTasksStore', DoneTasksStore);
-    console.log('register done tasks');
     next();
   },
-  beforeRouteLeave(to, from, next) {
-    store.unregisterModule('doneTasksStore');
-    console.log('unregister done tasks');
-    next();
-  },
+  // beforeRouteLeave(to, from, next) {
+  //   store.unregisterModule('doneTasksStore');
+  //   next();
+  // },
 })
 
 export default class DoneTasks extends Vue {
+  beforeDestroy() {
+    store.unregisterModule('doneTasksStore');
+  }
+
   @local.State('randomData') randomData!: Array<string>;
 
   @local.State('doneTasks') doneTasks!: Array<ITask>;

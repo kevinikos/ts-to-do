@@ -26,12 +26,10 @@ import TaskCounter        from '@/views/todo-app/components/task-counter.compone
 @Component({
   beforeRouteEnter(to, from, next) {
     store.registerModule('todoAppStore', TodoAppStore);
-    console.log('register todo');
     next();
   },
   beforeRouteLeave(to, from, next) {
     store.unregisterModule('todoAppStore');
-    console.log('unregistered todo');
     next();
   },
   components: {

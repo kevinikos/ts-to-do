@@ -8,8 +8,10 @@
         :key="index">
 
       {{ task.content }}
-      <remove-task :index="index" />
-      <uncheck-task :task="task" />
+      <div class="task-list__item__button-wrapper">
+        <remove-task :index="index" />
+        <uncheck-task :task="task" />
+      </div>
     </li>
   </ul>
 </template>
@@ -38,6 +40,7 @@ export default class TodoApp extends Vue {
 .task-list {
   list-style: none;
   width: 45rem;
+  margin-bottom: 1rem;
 
   &__item {
     font-size: 1.6rem;
@@ -48,9 +51,15 @@ export default class TodoApp extends Vue {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     &--is-done {
       text-decoration: line-through;
+    }
+
+    &__button-wrapper {
+      position: absolute;
+      right: 0;
     }
   }
 }
